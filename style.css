@@ -348,20 +348,20 @@ body {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-        #menu-overlay {
-            /* Initially hidden by default, shown when 'active' class is added */
-            display: none;
-        }
+#menu-overlay {
+/* Initially hidden by default, shown when 'active' class is added */
+     display: none;
+}
 
-        #menu-overlay.active {
-            display: block; /* Make overlay visible when active */
-        }
+#menu-overlay.active {
+    display: block; /* Make overlay visible when active */
+}
 
-        #mobile-menu {
-            /* Initially off-screen to the right by default, slides in when 'active' */
-            transform: translateX(100%); /* Start completely off-screen */
-        }
+#mobile-menu {
+/* Initially off-screen to the right by default, slides in when 'active' */
+    transform: translateX(100%); /* Start completely off-screen */
+}
 
-        #mobile-menu.active {
-            transform: translateX(0); /* Slide into view when active */
-        }
+#mobile-menu.active {
+     transform: translateX(0); /* Slide into view when active */
+}
