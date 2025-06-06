@@ -1,5 +1,5 @@
 # Ali Fallahi - Personal Portfolio
-Welcome to the GitHub repository for my personal portfolio [website](fallahiali.github.io)! This site serves as a digital showcase of my skills, projects, and professional journey as a System Developer and Security and windows internals Enthusiast.
+Welcome to the GitHub repository for my personal portfolio website! This site serves as a digital showcase of my skills, projects, and professional journey as a System Developer and Security and windows internals Enthusiast.
 
 ## About
 This repository contains the source code for my personal portfolio website, designed to highlight my expertise in system development and my passion for security and windows internals. The website is built with a focus on modern web standards, responsiveness, and user experience, featuring a dynamic theme toggle and smooth navigation.
@@ -57,7 +57,7 @@ Feel free to customize this portfolio to make it your own!
 **Resume Link**: Change href="sorry.pdf" in index.html to your actual resume file path.
 
 ## License
-This project is open source and available under the** MIT License**.
+This project is open source and available under the **MIT License**.
 
 ## Contact
 Feel free to reach out!
