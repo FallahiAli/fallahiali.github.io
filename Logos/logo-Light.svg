@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Group for the concentric diamond shapes, rotated 45 degrees -->
+  <g transform="translate(100 100) rotate(45)">
+    <!-- Outer diamond line -->
+    <rect x="-70" y="-70" width="140" height="140" stroke="#3b82f6" stroke-width="6" fill="none"/>
+    <!-- Second diamond line -->
+    <rect x="-50" y="-50" width="100" height="100" stroke="#3b82f6" stroke-width="6" fill="none"/>
+    <!-- Third diamond line -->
+    <rect x="-30" y="-30" width="60" height="60" stroke="#3b82f6" stroke-width="6" fill="none"/>
+    <!-- Innermost diamond line -->
+    <rect x="-10" y="-10" width="20" height="20" stroke="#3b82f6" stroke-width="6" fill="none"/>
+  </g>
+</svg>

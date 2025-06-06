@@ -32,71 +32,51 @@ body {
     text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
-/* Navigation styles with enhanced hover effects */
-.nav-link {
-    position: relative;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: var(--transition-smooth);
-    overflow: hidden;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
-    transition: var(--transition-smooth);
-}
-
-.nav-link:hover {
-    color: var(--accent-color);
-    font-weight: 700;
-    transform: translateY(-2px);
-}
-
-.nav-link:hover::before {
-    left: 100%;
-}
-
+/* Base style for navigation links (except resume button) */
 .nav-link-mono {
-    position: relative;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 0.5rem; /* Reduced horizontal padding for tighter spacing */
     font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 500; /* Default: not bold */
+    color: var(--text-secondary); /* Default: secondary text color */
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-    transition: var(--transition-bounce);
+    transition: var(--transition-smooth);
     text-decoration: none;
     display: inline-block;
-    border: 1px solid transparent;
+    border: none; /* Ensure no border */
+    background-color: transparent; /* Ensure no background */
+    margin-right: 1.5rem; /* Spacing between nav links */
 }
 
-.nav-link-mono:hover {
-    color: var(--accent-color);
-    background-color: var(--hover-bg);
-    border-color: var(--accent-color);
-    transform: scale(1.05) translateY(-1px);
-    box-shadow: 
-        var(--shadow-glow),
-        0 4px 15px rgba(0, 0, 0, 0.2);
+/* Adjust margin for the last nav link before the resume button */
+.nav-link-mono:last-of-type {
+    margin-right: 3rem; /* Space before the resume button */
 }
+
+/* Hover effect for navigation links */
+.nav-link-mono:hover {
+    font-weight: 700; /* Bold on hover */
+    color: var(--accent-color); /* Accent color on hover */
+    transform: none; /* No movement on hover */
+    background-color: transparent; /* No background on hover */
+    border-color: transparent; /* No border on hover */
+    box-shadow: none; /* No shadow on hover */
+}
+
+/* Styles for active navigation link (applied by script.js) */
+.text-blue-600 { /* This class is added by script.js for the active link */
+    color: var(--accent-color) !important; /* Force accent color for active link */
+}
+
+.font-semibold { /* This class is added by script.js for the active link */
+    font-weight: 700 !important; /* Force bold for active link */
+}
+
 
 /* Button styles with premium hover effects */
 .resume-button {
     position: relative;
-    margin-left: 3rem;
     padding: 0.75rem 1.5rem;
-/*    border: 2px solid var(--accent-color);*/
+    border: 2px solid var(--accent-color);
     color: var(--accent-color);
     border-radius: 0.5rem;
     font-size: 0.875rem;
@@ -113,13 +93,12 @@ body {
     display: none;
 }
 
+/* Updated hover style for dark mode to match light mode */
 .resume-button:hover {
-    color: var(--accent-color);
-    background-color: rgba(59, 130, 246, 0.1);
+    color: white; /* Text color changes to white on hover */
+    background-color: var(--accent-color); /* Background fills with accent color */
     transform: translateY(-3px) scale(1.02);
-   /* box-shadow: 
-        0 10px 25px rgba(59, 130, 246, 0.4),
-        0 0 30px rgba(59, 130, 246, 0.3);*/
+    box-shadow: none; /* Ensuring no specific box-shadow for dark mode hover */
 }
 
 .resume-button:hover::before {
@@ -160,10 +139,6 @@ body {
     color: var(--primary-bg);
     background: var(--accent-color);
     transform: translateY(-5px) scale(1.05);
-   /* box-shadow: 
-        0 15px 35px rgba(59, 130, 246, 0.4),
-        0 0 40px rgba(59, 130, 246, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);*/
 }
 
 .cta-button:hover::after {
@@ -191,7 +166,7 @@ body {
     color: var(--accent-color);
     background: var(--hover-bg);
     transform: translateY(-8px) rotate(5deg);
-    box-shadow: 
+    box-shadow:
         var(--shadow-glow),
         0 8px 25px rgba(0, 0, 0, 0.3);
     border-color: var(--accent-color);
@@ -242,8 +217,7 @@ body {
 .card:hover {
     transform: translateY(-10px) scale(1.02);
     background: rgba(17, 34, 64, 0.8);
-    border-color: var(--accent-color);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.3),
         0 0 30px rgba(100, 255, 218, 0.2),
         inset 0 1px 0 rgba(100, 255, 218, 0.1);
@@ -279,34 +253,37 @@ body {
     .hero-section {
         padding-top: 4rem;
     }
-    
+
     .fixed-sidebar {
         display: none;
     }
-    
-    .nav-link, .nav-link-mono {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
+
+    /* Mobile nav links - Ensure they have spacing */
+    .nav-link-mono {
+        padding: 0.5rem 0; /* Adjust padding for mobile as needed */
+        margin-right: 0; /* Remove horizontal margin for vertical stack */
+        margin-bottom: 1rem; /* Add vertical spacing between mobile links */
+        font-size: 0.9rem;
     }
-    
+
     .resume-button, .cta-button {
         padding: 0.75rem 1.25rem;
         font-size: 0.9rem;
     }
-    
+
     .social-icon {
         padding: 0.5rem;
     }
-    
+
     /* Reduce animation intensity on mobile for performance */
-    .nav-link:hover, .card:hover {
+    .card:hover {
         transform: translateY(-2px) scale(1.01);
     }
-    
+
     .cta-button:hover {
         transform: translateY(-3px) scale(1.02);
     }
-    
+
     .social-icon:hover {
         transform: translateY(-4px) rotate(2deg);
     }
@@ -364,4 +341,145 @@ body {
 
 #mobile-menu.active {
      transform: translateX(0); /* Slide into view when active */
+}
+
+
+/* Light Mode Variables - Replace the existing light mode section */
+body[data-theme='light'] {
+    --primary-bg: #f8faff; /* Very light blue background */
+    --secondary-bg: #ffffff; /* White for cards/sections */
+    --accent-color: #0066cc; /* Slightly darker blue for better contrast */
+    --text-primary: #2c3e50; /* Darker text for better readability */
+    --text-secondary: #4a5568; /* Medium gray text */
+    --text-muted: #718096; /* Lighter gray for subtle text */
+    --hover-bg: rgba(0, 102, 204, 0.08); /* Light blue hover effect */
+    --shadow-glow: 0 0 20px rgba(0, 102, 204, 0.25);
+
+    /* Fix the background gradient */
+    background: linear-gradient(135deg, var(--primary-bg) 0%, #e6f0ff 100%) !important;
+}
+
+/* Adjust header background for light mode */
+body[data-theme='light'] header {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Ensure header background is light */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    backdrop-filter: blur(10px);
+}
+
+/* Adjust social icons and cards for light mode */
+body[data-theme='light'] .social-icon,
+body[data-theme='light'] .card {
+    background-color: #ffffff !important; /* Force white background for cards in light mode */
+    color: var(--text-primary) !important; /* Set text color to primary text for readability */
+    border: 1px solid rgba(0, 102, 204, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+body[data-theme='light'] .card:hover {
+    background-color: rgba(0, 102, 204, 0.08) !important; /* Force light hover background for cards */
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.1),
+        0 0 20px rgba(0, 102, 204, 0.15);
+}
+
+/* Tech stack pills */
+body[data-theme='light'] .bg-slate-700 {
+    background-color: #e2e8f0;
+    color: var(--text-secondary);
+}
+
+/* Scrollbar for light mode */
+body[data-theme='light']::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-color) 0%, rgba(0, 102, 204, 0.6) 100%);
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.3);
+}
+
+body[data-theme='light']::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+/* Text color fixes */
+body[data-theme='light'] .text-slate-100 {
+    color: var(--text-primary) !important;
+}
+
+body[data-theme='light'] .text-slate-400 {
+    color: var(--text-secondary) !important;
+}
+
+body[data-theme='light'] .text-green-neon {
+    color: var(--accent-color) !important;
+    text-shadow: none;
+}
+
+/* Navigation fixes */
+body[data-theme='light'] .nav-link {
+    color: var(--text-secondary) !important;
+}
+
+body[data-theme='light'] .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Adjusted for light mode as well */
+body[data-theme='light'] .nav-link-mono {
+    color: var(--text-secondary) !important; /* Default secondary text color in light mode */
+    font-weight: 500 !important; /* Default not bold in light mode */
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Hover state for light mode nav links */
+body[data-theme='light'] .nav-link-mono:hover {
+    color: var(--accent-color) !important; /* Accent color on hover in light mode */
+    font-weight: 700 !important; /* Bold on hover in light mode */
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Active state for light mode nav links (applied by script.js) */
+body[data-theme='light'] .text-blue-600 {
+    color: var(--accent-color) !important;
+}
+
+body[data-theme='light'] .font-semibold {
+    font-weight: 700 !important; /* Making it truly bold for consistency */
+}
+
+
+/* Resume button fix */
+body[data-theme='light'] .resume-button {
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+body[data-theme='light'] .resume-button:hover {
+    color: white;
+    background-color: var(--accent-color);
+}
+
+/* CTA button fix */
+body[data-theme='light'] .cta-button {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+body[data-theme='light'] .cta-button:hover {
+    color: white;
+    background: var(--accent-color);
+}
+
+/* Sidebar fixes */
+body[data-theme='light'] .fixed-sidebar .h-24.w-px.bg-slate-600 {
+    background-color: #cbd5e0;
+}
+
+/* Mobile menu fixes */
+body[data-theme='light'] .mobile-menu-link {
+    color: var(--text-primary);
+}
+
+body[data-theme='light'] #mobile-menu {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }

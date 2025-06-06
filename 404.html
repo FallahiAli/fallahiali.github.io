@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- Your existing style.css for consistent theming -->
     <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#0a192f">
+    <meta name="msapplication-navbutton-color" content="#0a192f">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0a192f">
+
+    <link rel="icon" id="favicon-link" href="Favicon/favicon.svg" type="image/svg+xml">
 </head>
 <body class="leading-relaxed antialiased flex flex-col items-center justify-center min-h-screen p-6">
 
@@ -24,10 +29,10 @@
         </h2>
         <!-- Descriptive text -->
         <p class="text-lg md:text-xl text-slate-400 mb-8">
-        Our server just informed us this URL went off-grid. 
-        Perhaps it's on a well-deserved coffee break.            
-        
-        <!--Don't worry, you can always go back to the homepage.--> 
+        Our server just informed us this URL went off-grid.
+        Perhaps it's on a well-deserved coffee break.
+
+        <!--Don't worry, you can always go back to the homepage.-->
         </p>
         <!-- Call to action button -->
         <a href="index.html" class="cta-button inline-block">
@@ -42,5 +47,22 @@
         </p>
     </footer>
 
+    <script>
+        // JavaScript to apply the saved theme from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const bodyElement = document.body;
+
+            if (savedTheme) {
+                bodyElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+                // Default to light mode if system prefers it and no theme is saved
+                bodyElement.setAttribute('data-theme', 'light');
+            } else {
+                // Default to dark mode if no preference is saved or system prefers dark
+                bodyElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
