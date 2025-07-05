@@ -182,6 +182,18 @@
                 // Add event listeners to both desktop and mobile toggle buttons
                 this.desktopToggleButton?.addEventListener('click', () => this.toggleTheme());
                 this.mobileToggleButton?.addEventListener('click', () => this.toggleTheme());
+
+                // Listen for changes in system theme preference
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
+                    // If a theme is explicitly set by the user, don't override it
+                    if (!localStorage.getItem('theme')) {
+                        const newTheme = event.matches ? 'light' : 'dark';
+                        this.bodyElement.setAttribute('data-theme', newTheme);
+                        this.updateIcons();
+                        this.setLogoBasedOnTheme();
+                        this.setFaviconBasedOnTheme();
+                    }
+                });
             }
 
             // Applies the theme saved in localStorage or defaults to system preference
