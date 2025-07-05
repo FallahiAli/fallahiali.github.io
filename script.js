@@ -184,15 +184,10 @@
                 this.mobileToggleButton?.addEventListener('click', () => this.toggleTheme());
 
                 // Listen for changes in system theme preference
-                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
-                    // If a theme is explicitly set by the user, don't override it
-                    if (!localStorage.getItem('theme')) {
-                        const newTheme = event.matches ? 'light' : 'dark';
-                        this.bodyElement.setAttribute('data-theme', newTheme);
-                        this.updateIcons();
-                        this.setLogoBasedOnTheme();
-                        this.setFaviconBasedOnTheme();
-                    }
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+                    // When the system theme changes, re-apply the theme logic.
+                    // The applyInitialTheme function will respect a user's manual choice stored in localStorage.
+                    this.applyInitialTheme();
                 });
             }
 
